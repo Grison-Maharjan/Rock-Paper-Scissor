@@ -16,8 +16,9 @@ body {
 }
 #header-1 {
     font-size:xx-large;
-    font-weight: bold;
-    font-family: 'Courier New';
+    font-weight: bolder;
+    font-family: slab-serif;
+    color: rgb(238, 85, 85);
 }
 /* header css end */
 
@@ -30,7 +31,8 @@ body {
 }
 
 #user-side {
-    background-color: lightgreen;
+    background-color: rgb(95, 240, 95);
+    border-radius: 10px;
     height: 425px;
     width: 350px;
     display: flex;
@@ -54,7 +56,8 @@ body {
 }
 
 #bots-side {
-    background-color: lightcoral;
+    background-color: rgb(238, 85, 85);
+    border-radius: 10px;
     height: 425px;
     width: 350px;
     display: flex;
@@ -62,10 +65,6 @@ body {
     justify-content:center;
     align-items: center;
     gap: 2rem;
-}
-
-#mid-img {
-    background-color: burlywood;
 }
 /* action area css end */
 
@@ -83,8 +82,7 @@ body {
     justify-content: center;
     align-items: center;
     padding: 0px 10px;
-    width: fit-content;
-    max-width: 150px;
+    width: 350px;
     height: 70px;
     max-height: 70px;
     font-size: 30px;
@@ -113,5 +111,13 @@ body {
 #reset-btn:hover {
     opacity: 1;
     cursor: pointer;
+}
+
+#credit {
+    display: flex;
+    justify-content: center;
+    color: gray;
+    font-family: sans-serif;
+    font-weight: bolder;
 }
 /* footer css end */
