@@ -3,11 +3,14 @@ const allUserMoves = document.querySelectorAll(".user-move");
 const userSide = document.querySelector("#user-side");
 const botsSide = document.querySelector("#bots-side");
 const resultDisplay = document.querySelector("#result-display");
+const displayUserMove = document.querySelector("#display-user-move");
+const displayBotsMove = document.querySelector("#display-bots-move");
 
 //finding move id when click event is performed in loop and passing user move value to botsTurn function.
 allUserMoves.forEach((move) => {
   move.addEventListener("click", () => {
     const userMove = move.getAttribute("id");
+    displayUserMove.setAttribute("src", userMove+".png");
     // console.log("You have choosed " + userMove);
     botsTurn(userMove);
   });
@@ -18,6 +21,7 @@ const botsTurn = (userMove) => {
   const allBotMoves = ["rock", "paper", "scissor"];
   const randomizer = Math.floor(Math.random() * 3);
   const botsMove = allBotMoves[randomizer];
+    displayBotsMove.setAttribute("src", botsMove+".png");
   // console.log(`Bot has choosen ${botsMove}`);
   decider(userMove, botsMove);
 };
