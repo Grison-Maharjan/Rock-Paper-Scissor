@@ -5,34 +5,35 @@ const botsSide = document.querySelector("#bots-side");
 const resultDisplay = document.querySelector("#result-display");
 const displayUserMove = document.querySelector("#display-user-move");
 const displayBotsMove = document.querySelector("#display-bots-move");
+const resetBtn = document.querySelector("#reset-btn");
 
-//finding move id when click event is performed in loop and passing user move value to botsTurn function.
+//finding move id when click event is performed in loop and giving value to displayUserMove which displays choosen move in the game and passing user move value to botsTurn function.
 allUserMoves.forEach((move) => {
   move.addEventListener("click", () => {
     const userMove = move.getAttribute("id");
-    displayUserMove.setAttribute("src", userMove+".png");
+    displayUserMove.setAttribute("src", userMove + ".png");
     // console.log("You have choosed " + userMove);
     botsTurn(userMove);
   });
 });
 
-//receiving user move and generating bots move by randomizing index and padding both user move and bots move to decider function.
+//receiving user move and generating bots move by randomizing index and giving value to displayBotsMove which displays choosen move in the game and passing both user move and bots move to decider function.
 const botsTurn = (userMove) => {
   const allBotMoves = ["rock", "paper", "scissor"];
   const randomizer = Math.floor(Math.random() * 3);
   const botsMove = allBotMoves[randomizer];
-    displayBotsMove.setAttribute("src", botsMove+".png");
+  displayBotsMove.setAttribute("src", botsMove + ".png");
   // console.log(`Bot has choosen ${botsMove}`);
   decider(userMove, botsMove);
 };
 
-//function made to change whenever the game decision is made 
+//function made to change whenever the game decision is made
 const winChanges = (winner) => {
   if (winner === true) {
-    resultDisplay.innerText = "You Won!!!"
+    resultDisplay.innerText = "You Won!!!";
     userSide.style.backgroundColor = "rgb(18, 252, 18)";
     botsSide.style.backgroundColor = "rgb(238, 85, 85)";
-  } else if(winner === false) {
+  } else if (winner === false) {
     resultDisplay.innerText = "Bot won!!! Try again!!!";
     botsSide.style.backgroundColor = "rgb(255, 44, 44)";
     userSide.style.backgroundColor = " rgb(95, 240, 95)";
@@ -61,4 +62,15 @@ const decider = (userMove, botsMove) => {
     console.log("Bot won!!!");
     winChanges(false);
   }
+  reseter(userMove, botsMove);
+};
+
+const reseter = (userMove, botsMove) => {
+  resetBtn.addEventListener("click", () => {
+    userMove = "";
+    botsMove = "";
+    displayUserMove.setAttribute("src", "hour-glass.png");
+    displayBotsMove.setAttribute("src", "hour-glass.png");
+    resultDisplay.innerText = "Deciding...";
+  });
 };
